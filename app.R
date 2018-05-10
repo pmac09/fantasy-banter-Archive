@@ -7,12 +7,7 @@ source(file.path("./functions", "setup.R"), local = TRUE)
 
 
 
-
-
-
-
-
-# Define UI for application that draws a histogram
+############################################################
 ui <- dashboardPage(
   
   dashboardHeader(title = "Fantasy Banter"),
@@ -30,7 +25,7 @@ ui <- dashboardPage(
   )
 )
 
-# Define server logic required to draw a histogram
+############################################################
 server <- function(input, output) {
   
   source(file.path("./server", "server_Gameday.R"), local = TRUE)$value

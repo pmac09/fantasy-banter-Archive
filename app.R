@@ -1,6 +1,16 @@
 library(shiny)
 library(shinydashboard)
 
+# Import setup functions
+source(file.path("./functions", "setup.R"), local = TRUE)
+
+
+
+
+
+
+
+
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(

@@ -1,3 +1,3 @@
 tabItem(
-  title = "tabGameday"
+  tabName = "tabGameday"
 )

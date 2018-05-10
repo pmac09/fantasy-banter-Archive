@@ -8,7 +8,9 @@ ui <- dashboardPage(
   dashboardHeader(title = "Fantasy Banter"),
   
   dashboardSidebar(
-    menuItem("Gameday", tabName = "tabGameday", icon = icon("tasks"))
+    sidebarMenu(
+      menuItem("Gameday", tabName = "tabGameday", icon = icon("tasks"))
+    )
   ),
   
   dashboardBody(

@@ -1,0 +1,39 @@
+CREATE or REPLACE VIEW SC_FIXTURE_V AS
+
+SELECT 		sf.SC_GAME_ID
+		,	sf.SEASON
+        ,	sf.ROUND
+        ,	sf.GAME_NO
+        ,	sf.HOME_FLAG
+        
+        ,	sf.SC_COACH_ID
+        ,	sc.FIRST_NAME	as COACH_NAME
+		,	st.SC_TEAM_NAME
+        ,	sf.ROUND_SCORE	as TEAM_SCORE
+
+        ,	of.SC_COACH_ID	as OPP_COACH_ID
+        ,	oc.FIRST_NAME	as OPP_COACH_NAME
+		,	ot.SC_TEAM_NAME as OPP_TEAM_NAME
+        ,	of.ROUND_SCORE	as OPP_SCORE
+
+FROM		SC_FIXTURE sf
+
+LEFT JOIN	SC_TEAMS st
+ON			sf.SC_COACH_ID = st.SC_COACH_ID
+AND			sf.SEASON = st.SEASON
+
+LEFT JOIN	SC_COACHES sc
+ON			sf.SC_COACH_ID = sc.SC_COACH_ID
+
+LEFT JOIN	SC_FIXTURE of
+ON			sf.SC_GAME_ID = of.SC_GAME_ID
+AND			sf.HOME_FLAG <> of.HOME_FLAG
+
+LEFT JOIN	SC_TEAMS ot
+ON			of.SC_COACH_ID = ot.SC_COACH_ID
+AND			of.SEASON = ot.SEASON
+
+LEFT JOIN	SC_COACHES oc
+ON			of.SC_COACH_ID = oc.SC_COACH_ID
+
+;
